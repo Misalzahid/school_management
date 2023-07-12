@@ -1,0 +1,68 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PolicyController;
+use App\Http\Controllers\Admin\AboutusController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\TermConditionController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+ */
+/*
+Admin routes
+ * */
+Route::get('/admin', [AuthController::class, 'getLoginPage']);
+Route::post('admin/login', [AuthController::class, 'Login']);
+Route::get('/admin-forgot-password', [AdminController::class, 'forgetPassword']);
+Route::post('/admin-reset-password-link', [AdminController::class, 'adminResetPasswordLink']);
+Route::get('/change_password/{id}', [AdminController::class, 'change_password']);
+Route::post('/admin-reset-password', [AdminController::class, 'ResetPassword']);
+
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('dashboard', [AdminController::class, 'getdashboard']);
+    Route::get('profile', [AdminController::class, 'getProfile']);
+    Route::post('update-profile', [AdminController::class, 'update_profile']);
+    Route::get('logout', [AdminController::class, 'logout']);
+
+    //home controller
+
+
+    /** resource controller */
+    Route::resource('user', UserController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('subCategory', SubCategoryController::class);
+    Route::resource('product', ProductController::class);
+    Route::get('/get-subcategories/{id}', [ProductController::class, 'getSubCategories']);
+    // Route::resource('about', AboutusController::class);
+    // Route::resource('policy', PolicyController::class);
+    // Route::resource('terms', TermConditionController::class);
+    // Route::resource('faq', FaqController::class);
+
+});
+Route::get('about',[HomeController::class ,'about']);
+Route::get('addToWishlist',[HomeController::class ,'addToWishlist']);
+Route::get('checkout',[HomeController::class ,'checkout']);
+Route::get('cart',[HomeController::class ,'cart']);
+Route::get('contact',[HomeController::class ,'contact']);
+Route::get('index',[HomeController::class ,'index']);
+Route::get('men',[HomeController::class ,'men']);
+Route::get('order',[HomeController::class ,'order']);
+Route::get('productDetail',[HomeController::class ,'productDetail']);
+Route::get('women',[HomeController::class ,'women']);
+Route::get('/product/{id}',[HomeController::class ,'showProduct'])->name('product.show');
+Route::get('kids',[HomeController::class ,'kids']);
