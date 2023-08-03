@@ -30,10 +30,18 @@
             <li class="dropdown {{ request()->is('admin/getOrder*') ? 'active' : '' }}">
                 <a href="{{ route('getOrder') }}" class="nav-link"><i class="fa fa-info-circle"></i><span>Order</span></a>
             </li>
+            {{-- <li class="dropdown {{ request()->is('admin/totalIncome*') ? 'active' : '' }}">
+                <a href="{{ route('totalIncome') }}" class="nav-link"><i
+                    class="fab fa-product-hunt"></i><span>Total Income</span></a>
+            </li> --}}
             <li class="dropdown {{ request()->is('admin/reports*') ? 'active' : '' }}">
                 <a href="{{ route('reports') }}" class="nav-link"><i
                     class="fa fa-question-circle"></i><span>Reports</span></a>
-            </li>
+                </li>
+                {{-- <li class="dropdown {{ request()->is('admin/totalIncome*') ? 'active' : '' }}">
+                    <a href="{{ route('totalIncome') }}" class="nav-link"><i
+                        class="fab fa-product-hunt"></i><span>Total Income</span></a>
+                </li> --}}
             {{-- <li class="dropdown {{ request()->is('admin/about*') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="nav-link"><i data-feather="monitor"></i><span>About
                         Us</span></a>

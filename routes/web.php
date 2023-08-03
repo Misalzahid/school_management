@@ -13,6 +13,7 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\frontend\OrderController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\TotalIncomeController;
 use App\Http\Controllers\frontend\AddToCartController;
 use App\Http\Controllers\Admin\TermConditionController;
 use App\Http\Controllers\frontend\ProductDetailController;
@@ -61,6 +62,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('orderStatus/{id}', [AdminOrderController::class, 'status'])->name('orderStatus');
     Route::get('orderProduct', [AdminOrderController::class, 'show'])->name('orderProduct');
     Route::get('reports', [ReportController::class, 'getReports'])->name('reports');
+    Route::get('totalIncome', [TotalIncomeController::class, 'index'])->name('totalIncome');
     // Route::resource('about', AboutusController::class);
     // Route::resource('policy', PolicyController::class);
     // Route::resource('terms', TermConditionController::class);

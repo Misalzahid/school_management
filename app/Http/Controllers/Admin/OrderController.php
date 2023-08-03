@@ -8,15 +8,21 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $orders = Order::orderBy('id', 'DESC')->get();
+        $totalAmount = 0;
+        foreach ($orders as $order) {
+            $totalAmount += $order->total_amount;
+        }
 
-        return view('admin.order.index',compact('orders'));
+
+        return view('admin.order.index', compact('orders','totalAmount'));
 
     }
 
-     /*update status of order */
+    /*update status of order */
     public function status($id)
     {
         $order = Order::find($id);
@@ -27,7 +33,7 @@ class OrderController extends Controller
     public function show(Request $request)
     {
 
-        $data = Order::with('orderItem','orderAddress')->find($request->id);
+        $data = Order::with('orderItem', 'orderAddress')->find($request->id);
         // return $data;
         $product = view('admin.order.model', compact('data'))->render();
         return response()->json($product);

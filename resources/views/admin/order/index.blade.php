@@ -12,6 +12,11 @@
                                     <h4>Order</h4>
                                 </div>
                             </div>
+                            <div class="card-header">
+                                <div class="col-12 d-flex justify-content-end">
+                                    <h4 class="">Total Income : {{ $totalAmount }}</h4>
+                                </div>
+                            </div>
                             <div class="card-body table-striped table-bordered table-responsive">
                                 <table class="table text-center" id="table_id_events">
                                     <thead>
@@ -78,7 +83,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
