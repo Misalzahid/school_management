@@ -6,7 +6,7 @@
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
                 <p>
                     <ul class="colorlib-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2F%3Flang%3Den"><i class="icon-twitter"></i></a></li>
                         <li><a href="#"><i class="icon-facebook"></i></a></li>
                         <li><a href="#"><i class="icon-linkedin"></i></a></li>
                         <li><a href="#"><i class="icon-dribbble"></i></a></li>

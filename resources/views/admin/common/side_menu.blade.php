@@ -1,9 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="{{ asset('public/admin/assets/images/logo1.png') }}"
+            {{-- <a href="index.html"> <img alt="image" src=""
                     class="header-logo" /> <span class="logo-name">Typing center</span>
-            </a>
+            </a> --}}
+            <h3>Shoes-Shop</h3>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Main</li>
@@ -12,21 +13,28 @@
                         data-feather="home"></i><span>Dashboard</span></a>
             </li>
             <li class="dropdown {{ request()->is('admin/user*') ? 'active' : '' }}">
-                <a href="{{ route('user.index') }}" class="nav-link"><i data-feather="users"></i><span>User</span></a>
+                <a href="{{ route('user.index') }}" class="nav-link"><i class="fa fa-users"></i><span>User</span></a>
             </li>
             <li class="dropdown {{ request()->is('admin/category*') ? 'active' : '' }}">
-                <a href="{{ route('category.index') }}" class="nav-link"><i data-feather="users"></i><span>Category</span></a>
+                <a href="{{ route('category.index') }}" class="nav-link"><i
+                    class="fa fa-list-alt"></i><span>Category</span></a>
             </li>
             <li class="dropdown {{ request()->is('admin/subCategory*') ? 'active' : '' }}">
-                <a href="{{ route('subCategory.index') }}" class="nav-link"><i data-feather="users"></i><span>subCategory</span></a>
+                <a href="{{ route('subCategory.index') }}" class="nav-link"><i
+                    class="fa fa-list-alt"></i><span>subCategory</span></a>
             </li>
             <li class="dropdown {{ request()->is('admin/product*') ? 'active' : '' }}">
-                <a href="{{ route('product.index') }}" class="nav-link"><i data-feather="users"></i><span>Product</span></a>
+                <a href="{{ route('product.index') }}" class="nav-link"><i
+                    class="fab fa-product-hunt"></i><span>Product</span></a>
             </li>
-            {{-- <li class="dropdown {{ request()->is('admin/officer*') ? 'active' : '' }}">
-                <a href="{{ route('officer.index') }}" class="nav-link"><i data-feather="users"></i><span>Officer</span></a>
+            <li class="dropdown {{ request()->is('admin/getOrder*') ? 'active' : '' }}">
+                <a href="{{ route('getOrder') }}" class="nav-link"><i class="fa fa-info-circle"></i><span>Order</span></a>
             </li>
-            <li class="dropdown {{ request()->is('admin/about*') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->is('admin/reports*') ? 'active' : '' }}">
+                <a href="{{ route('reports') }}" class="nav-link"><i
+                    class="fa fa-question-circle"></i><span>Reports</span></a>
+            </li>
+            {{-- <li class="dropdown {{ request()->is('admin/about*') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="nav-link"><i data-feather="monitor"></i><span>About
                         Us</span></a>
             </li>

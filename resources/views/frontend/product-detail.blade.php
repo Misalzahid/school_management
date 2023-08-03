@@ -6,117 +6,68 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <p class="bread"><span><a href="{{ url('index') }}">Home</a></span> / <span>Product Details</span></p>
+                        <p class="bread"><span><a href="{{ url('index') }}">Home</a></span> / <span>Product Details</span>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="colorlib-product">
             <div class="container">
                 <div class="row row-pb-lg product-detail-wrap">
                     <div class="col-sm-8">
-                        <div class="owl-carousel">
+                        <div class="">
                             <div class="item">
                                 <div class="product-entry border">
                                     <a href="#" class="prod-img">
-                                        <img src="{{asset('public/images/item-1.jpg')}}" class="img-fluid"
-                                            alt="Free html5 bootstrap 4 template">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-entry border">
-                                    <a href="#" class="prod-img">
-                                        <img src="{{asset('public/images/item-2.jpg')}}" class="img-fluid"
-                                            alt="Free html5 bootstrap 4 template">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-entry border">
-                                    <a href="#" class="prod-img">
-                                        <img src="{{asset('public/images/item-3.jpg')}}" class="img-fluid"
-                                            alt="Free html5 bootstrap 4 template">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-entry border">
-                                    <a href="#" class="prod-img">
-                                        <img src="{{asset('public/images/item-4.jpg')}}" class="img-fluid"
+                                        <img src="{{ asset($productDetails->image) }}" class="img-fluid"
                                             alt="Free html5 bootstrap 4 template">
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-4">
                         <div class="product-desc">
-                            <h3>Women's Boots Shoes Maca</h3>
-                            <p class="price">
-                                <span>$68.00</span>
-                                <span class="rate">
-                                    <i class="icon-star-full"></i>
-                                    <i class="icon-star-full"></i>
-                                    <i class="icon-star-full"></i>
-                                    <i class="icon-star-full"></i>
-                                    <i class="icon-star-half"></i>
-                                    (74 Rating)
-                                </span>
-                            </p>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
-                                decided to leave for the far World of Grammar.</p>
-                            <div class="size-wrap">
-                                <div class="block-26 mb-2">
-                                    <h4>Size</h4>
-                                    <ul>
-                                        <li><a href="#">7</a></li>
-                                        <li><a href="#">7.5</a></li>
-                                        <li><a href="#">8</a></li>
-                                        <li><a href="#">8.5</a></li>
-                                        <li><a href="#">9</a></li>
-                                        <li><a href="#">9.5</a></li>
-                                        <li><a href="#">10</a></li>
-                                        <li><a href="#">10.5</a></li>
-                                        <li><a href="#">11</a></li>
-                                        <li><a href="#">11.5</a></li>
-                                        <li><a href="#">12</a></li>
-                                        <li><a href="#">12.5</a></li>
-                                        <li><a href="#">13</a></li>
-                                        <li><a href="#">13.5</a></li>
-                                        <li><a href="#">14</a></li>
-                                    </ul>
-                                </div>
-                                <div class="block-26 mb-4">
-                                    <h4>Width</h4>
-                                    <ul>
-                                        <li><a href="#">M</a></li>
-                                        <li><a href="#">W</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="input-group mb-4">
-                                <span class="input-group-btn">
-                                    <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                                        <i class="icon-minus2"></i>
-                                    </button>
-                                </span>
-                                <input type="text" id="quantity" name="quantity" class="form-control input-number"
-                                    value="1" min="1" max="100">
-                                <span class="input-group-btn ml-1">
-                                    <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                        <i class="icon-plus2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 text-center">
-                                    <p class="addtocart"><a href="cart.html" class="btn btn-primary btn-addtocart"><i
-                                                class="icon-shopping-cart"></i> Add to Cart</a></p>
-                                </div>
+                            <h3>Product Name: {{ $productDetails->name }}</h3>
+                            <div class="product-variant">
+                                <form action=" " method="POST">
+                                    @csrf
+                                    <select name="" id="sizeSelect" class="form-control">
+                                        <option value=""disabled selected>Select Size</option>
+                                        @foreach ($productDetails->varients as $variant)
+                                            <option value="{{ $variant->id }}">{{ $variant->size }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Stock" value=""
+                                            id="stockDisplay" aria-label="Recipient's username"
+                                            aria-describedby="basic-addon2">
+                                        <span class="input-group-text">Stock</span>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Price" value=""
+                                            id="priceDisplay" aria-label="Recipient's username"
+                                            aria-describedby="basic-addon2">
+                                        <span class="input-group-text">Price</span>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Quantity" id="qty"
+                                            aria-label="Recipient's username"
+                                            aria-describedby="basic-addon2">
+                                        <span class="input-group-text">Quantity</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <p class="addtocart"><a
+                                                    class="btn btn-primary btn-addtocart add_to_cart"
+                                                    onclick="myFunction()"><i class="icon-shopping-cart"></i>
+                                                    Add to
+                                                    Cart</a></p>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -131,24 +82,14 @@
 
                                         <li class="nav-item">
                                             <a class="nav-link active" id="pills-description-tab" data-toggle="pill"
-                                                href="#pills-description" role="tab"
-                                                aria-controls="pills-description" aria-expanded="true">Description</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill"
-                                                href="#pills-manufacturer" role="tab"
-                                                aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-review-tab" data-toggle="pill"
-                                                href="#pills-review" role="tab" aria-controls="pills-review"
-                                                aria-expanded="true">Review</a>
+                                                href="#pills-description" role="tab" aria-controls="pills-description"
+                                                aria-expanded="true">Description</a>
                                         </li>
                                     </ul>
 
                                     <div class="tab-content" id="pills-tabContent">
-                                        <div class="tab-pane border fade show active" id="pills-description"
-                                            role="tabpanel" aria-labelledby="pills-description-tab">
+                                        <div class="tab-pane border fade show active" id="pills-description" role="tabpanel"
+                                            aria-labelledby="pills-description-tab">
                                             <p>Even the all-powerful Pointing has no control about the blind texts it is an
                                                 almost unorthographic life One day however a small line of blind text by the
                                                 name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
@@ -164,163 +105,6 @@
                                                 <li>tial into the belt and made herself on the way.</li>
                                             </ul>
                                         </div>
-
-                                        <div class="tab-pane border fade" id="pills-manufacturer" role="tabpanel"
-                                            aria-labelledby="pills-manufacturer-tab">
-                                            <p>Even the all-powerful Pointing has no control about the blind texts it is an
-                                                almost unorthographic life One day however a small line of blind text by the
-                                                name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                            <p>When she reached the first hills of the Italic Mountains, she had a last view
-                                                back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-                                                Village and the subline of her own road, the Line Lane. Pityful a rethoric
-                                                question ran over her cheek, then she continued her way.</p>
-                                        </div>
-
-                                        <div class="tab-pane border fade" id="pills-review" role="tabpanel"
-                                            aria-labelledby="pills-review-tab">
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <h3 class="head">23 Reviews</h3>
-                                                    <div class="review">
-                                                        <div class="user-img"
-                                                            style="background-image: url(public/images/person1.jpg);"></div>
-                                                        <div class="desc">
-                                                            <h4>
-                                                                <span class="text-left">Jacob Webb</span>
-                                                                <span class="text-right">14 March 2018</span>
-                                                            </h4>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-half"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                </span>
-                                                                <span class="text-right"><a href="#"
-                                                                        class="reply"><i
-                                                                            class="icon-reply"></i></a></span>
-                                                            </p>
-                                                            <p>When she reached the first hills of the Italic Mountains, she
-                                                                had a last view back on the skyline of her hometown
-                                                                Bookmarksgrov</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review">
-                                                        <div class="user-img"
-                                                            style="background-image: url(public/images/person2.jpg);"></div>
-                                                        <div class="desc">
-                                                            <h4>
-                                                                <span class="text-left">Jacob Webb</span>
-                                                                <span class="text-right">14 March 2018</span>
-                                                            </h4>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-half"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                </span>
-                                                                <span class="text-right"><a href="#"
-                                                                        class="reply"><i
-                                                                            class="icon-reply"></i></a></span>
-                                                            </p>
-                                                            <p>When she reached the first hills of the Italic Mountains, she
-                                                                had a last view back on the skyline of her hometown
-                                                                Bookmarksgrov</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review">
-                                                        <div class="user-img"
-                                                            style="background-image:url(public/images/person3.jpg)"></div>
-                                                        <div class="desc">
-                                                            <h4>
-                                                                <span class="text-left">Jacob Webb</span>
-                                                                <span class="text-right">14 March 2018</span>
-                                                            </h4>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-half"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                </span>
-                                                                <span class="text-right"><a href="#"
-                                                                        class="reply"><i
-                                                                            class="icon-reply"></i></a></span>
-                                                            </p>
-                                                            <p>When she reached the first hills of the Italic Mountains, she
-                                                                had a last view back on the skyline of her hometown
-                                                                Bookmarksgrov</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="rating-wrap">
-                                                        <h3 class="head">Give a Review</h3>
-                                                        <div class="wrap">
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    (98%)
-                                                                </span>
-                                                                <span>20 Reviews</span>
-                                                            </p>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    (85%)
-                                                                </span>
-                                                                <span>10 Reviews</span>
-                                                            </p>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    (70%)
-                                                                </span>
-                                                                <span>5 Reviews</span>
-                                                            </p>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    (10%)
-                                                                </span>
-                                                                <span>0 Reviews</span>
-                                                            </p>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                    (0%)
-                                                                </span>
-                                                                <span>0 Reviews</span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -330,4 +114,89 @@
             </div>
         </div>
     </body>
+@endsection
+@section('js')
+    @if (\Illuminate\Support\Facades\Session::has('message'))
+        <script>
+            toastr.success('{{ \Illuminate\Support\Facades\Session::get('message') }}');
+        </script>
+    @endif
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        function myFunction() {
+            var varientId = $('#sizeSelect').val();
+            var qty = $('#qty').val();
+            $.ajax({
+                    url: '{{ URL::to('/add-to-cart') }}', // Update the URL to the correct endpoint
+                    type: 'GET',
+                    data: {
+                        'id': varientId,
+                        'qty':qty
+                    },
+                    success: function(response) {
+                        // console.log(response);
+                        $('.cart-item-count').text(response.data);
+                        toastr.success(response.message);
+                    }
+                });
+
+        }
+
+        sizeSelect.addEventListener('change', function() {
+            const selectedSize = sizeSelect.value;
+            // alert(selectedSize);
+
+            // Send an Ajax request to the server using jQuery
+            $.ajax({
+                url: "{{ url('varient') }}",
+                type: "POST",
+                data: {
+                    size: selectedSize,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(data) {
+                    // console.log(data);
+                    // Update the displayed stock and price
+                    $('#stockDisplay').val(data.data.total_stock);
+                    $('#priceDisplay').val(data.data.price);
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+
+        // $('.btn-addtocart').click(function(event) {
+        //     event.preventDefault();
+        //     // Submit the form when the button is clicked
+        //     $('#addToCartForm').submit();
+        // });
+
+        // var quantityInput = document.getElementById("quantity");
+        // var quantity = parseInt(quantityInput.value);
+        // var plusButton = document.getElementsByClass("quantity-right-plus btn");
+        // var minusButton = document.getElementsByClass(" quantity-left-minus btn");
+
+        // function incrementQuantity() {
+        //     quantity += 1;
+        //     quantityInput.value = quantity;
+        // }
+
+        // function decrementQuantity() {
+        //     if (quantity <= 0) {
+        //         quantity = 0;
+        //     } else {
+        //         quantity -= 1;
+        //         quantityInput.value = quantity;
+        //     }
+        // }
+
+        // plusButton.addEventListener('click', function() {
+        //     incrementQuantity();
+        // });
+        // minusButton.addEventListener('click', function() {
+        //     decrementQuantity();
+        // });
+    </script>
 @endsection

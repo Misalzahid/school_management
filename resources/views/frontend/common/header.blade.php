@@ -9,12 +9,12 @@
 							<div id="colorlib-logo"><a href="index.html">Shoes-Shop</a></div>
 						</div>
 						<div class="col-sm-5 col-md-3">
-			            <form action="#" class="search-wrap">
+			            {{-- <form action="#" class="search-wrap">
 			               <div class="form-group">
 			                  <input type="search" class="form-control search" placeholder="Search">
 			                  <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
 			               </div>
-			            </form>
+			            </form> --}}
 			         </div>
 		         </div>
 					<div class="row">
@@ -23,20 +23,20 @@
 								<li><a href="{{ url('index') }}">Home</a></li>
 								<li class="has-dropdown active">
 									<a href="{{ url('men') }}">Men</a>
-									<ul class="dropdown">
+									{{-- <ul class="dropdown">
 										<li><a href="{{ url('productDetail') }}">Product Detail</a></li>
 										<li><a href="{{ url('cart') }}">Shopping Cart</a></li>
 										<li><a href="{{ url('checkout') }}">Checkout</a></li>
 										<li><a href="{{ url('order') }}">Order Complete</a></li>
 										<li><a href="{{ url('addToWishlist') }}">Wishlist</a></li>
-									</ul>
+									</ul> --}}
 								</li>
 								<li><a href="{{ url('women') }}">Women</a></li>
 								<li><a href="{{ url('kids') }}">Kids</a></li>
 								<li><a href="{{ url('about') }}">About</a></li>
 								<li><a href="{{ url('contact') }}">Contact</a></li>
-								<li class="cart"><a href="{{ url('cart') }}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-							</ul>
+                                <li class="cart"><a href="{{ url('cart') }}"><i class="icon-shopping-cart"></i> Cart [<span class="cart-item-count">{{count((array) session('cart'))}}</span>]</a></li>
+                            </ul>
 						</div>
 					</div>
 				</div>
@@ -49,12 +49,12 @@
 								<div class="owl-carousel2">
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+											{{-- <h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3> --}}
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">Our biggest sale yet 50% off all summer shoes</a></h3>
+											{{-- <h3><a href="#">Our biggest sale yet 50% off all summer shoes</a></h3> --}}
 										</div>
 									</div>
 								</div>
@@ -64,3 +64,8 @@
 				</div>
 			</div>
 		</nav>
+    </div>
+</div>
+
+
+

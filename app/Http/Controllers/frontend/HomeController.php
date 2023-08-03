@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
+
 
 class HomeController extends Controller
 {
@@ -49,8 +51,12 @@ class HomeController extends Controller
 
     public function checkout()
     {
-
-        return view('frontend.checkout');
+        $total = 0;
+        foreach((array) session('cart') as $id => $details){
+            $total += $details['price'] * $details['quantity'];
+        }
+        // return $total;
+        return view('frontend.checkout',compact('total'));
     }
 
     public function index()
@@ -58,26 +64,43 @@ class HomeController extends Controller
         $categories = Category::where('title', 'men')->first();
         $category = Category::where('title', 'women')->first();
         $kidscategory = Category::where('title', 'kids')->first();
-        $products = Product::with('varients')->get();
+        $products = Product::with('varients')->paginate(8);
         foreach ($products as $product) {
             $varients = $product->varients;
             foreach ($varients as $variant) {
                 $price = $variant->price;
             }
         }
+        // $products = Varient::with('product')->paginate(8);
+        // return $products;
         return view('frontend.index', compact('products', 'price', 'categories', 'category', 'kidscategory'));
+    }
+
+    public function getallProduct()
+    {
+        $products = Product::with('varients')->paginate(8);
+        foreach ($products as $product) {
+            $varients = $product->varients;
+            foreach ($varients as $variant) {
+                $price = $variant->price;
+            }
+        }
+
+        return view('frontend.allProduct', compact('products', 'price'));
     }
 
     public function men()
     {
+        //get sub category agaainst category
         $categories = Category::where('title', 'men')->with('subCategory')->first();
         $subcategories = $categories->subCategory;
+        //get all product against category
         $products = Product::whereHas('category', function ($query) {
             $query->where('title', 'men');
-        })->with('varients')->get();
+        })->with('varients')->paginate(8);
 
         $prices = [];
-
+        //get all varients
         foreach ($products as $product) {
             $varients = $product->varients;
             foreach ($varients as $varient) {
@@ -85,7 +108,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('frontend.men', compact('products', 'price', 'subcategories'));
+        return view('frontend.men', compact('products', 'price', 'categories', 'subcategories'));
     }
 
     public function order()
@@ -94,55 +117,57 @@ class HomeController extends Controller
         return view('frontend.order-complete');
     }
 
-    public function productDetail()
-    {
-
-        return view('frontend.product-detail');
-    }
+    // public function productDetail()
+    // {
+    //     return view('frontend.product-detail');
+    // }
 
     public function women()
     {
+        //get sub category agaainst category
         $categories = Category::where('title', 'women')->with('subCategory')->first();
         $subcategories = $categories->subCategory;
+        //get all product against category
         $products = Product::whereHas('category', function ($query) {
             $query->where('title', 'women');
-        })->with('varients')->get();
+        })->with('varients')->paginate(8);
 
         $prices = [];
-
+        //get all varients
         foreach ($products as $product) {
             $varients = $product->varients;
             foreach ($varients as $varient) {
                 $price[$product->id] = $varient->price;
             }
         }
-        return view('frontend.women', compact('products', 'price', 'subcategories'));
+        return view('frontend.women', compact('products', 'price', 'categories', 'subcategories'));
     }
 
     public function kids()
     {
+        //get sub category agaainst category
         $categories = Category::where('title', 'kids')->with('subCategory')->first();
         $subcategories = $categories->subCategory;
+        //get all product against category
         $products = Product::whereHas('category', function ($query) {
             $query->where('title', 'kids');
-        })->with('varients')->get();
+        })->with('varients')->paginate(8);
 
         $prices = [];
-
+        //get all varients
         foreach ($products as $product) {
             $varients = $product->varients;
             foreach ($varients as $varient) {
                 $price[$product->id] = $varient->price;
             }
         }
-        return view('frontend.women', compact('products', 'price', 'subcategories'));
+        return view('frontend.kids', compact('products', 'price', 'categories', 'subcategories'));
     }
 
+    //get all product against subCategory
     public function showProduct(Request $request, $id)
-{
-    $peoducts = SubCategory::with('product')->find($id);
-    // return $peoducts->product->image;
-
-    return view('frontend.product', compact('peoducts'));
-}
+    {
+        $products = SubCategory::with('product')->find($id)->product()->paginate(8);
+        return view('frontend.product', compact('products'));
+    }
 }

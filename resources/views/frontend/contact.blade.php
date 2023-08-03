@@ -11,8 +11,6 @@
                 </div>
             </div>
         </div>
-
-
         <div id="colorlib-contact">
             <div class="container">
                 <div class="row">
@@ -37,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-6">
                         <div class="contact-wrap">
                             <h3>Get In Touch</h3>
@@ -91,10 +89,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div id="map" class="colorlib-map"></div>
-                    </div>
-                </div>
+                    <div class="col-md-6"> --}}
+                {{-- <div id="map" class="colorlib-map"></div> --}}
             </div>
         </div>
     </body>
