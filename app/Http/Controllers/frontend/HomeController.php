@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Varient;
 use App\Models\Category;
@@ -113,14 +114,10 @@ class HomeController extends Controller
 
     public function order()
     {
-
-        return view('frontend.order-complete');
+        $order = Order::latest()->with('orderItem','orderAddress')->first();
+        $name = $order->orderAddress->f_name;
+        return view('frontend.order-complete',compact('name','order'));
     }
-
-    // public function productDetail()
-    // {
-    //     return view('frontend.product-detail');
-    // }
 
     public function women()
     {

@@ -35,14 +35,15 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <form action="{{route('order') }}" method="post" class="colorlib-form">
+                        <form action="{{ route('order') }}" method="post" class="colorlib-form">
                             @csrf
                             <h2>Billing Details</h2>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="country">Country</label>
-                                        <input type="text" name="country" id="fname" class="form-control" value="Pakistan">
+                                        <input type="text" name="country" id="country" class="form-control"
+                                            value="Pakistan">
                                         {{-- <div class="form-field">
                                             <i class="icon icon-arrow-down3"></i>
                                             <select name="people" id="people" class="form-control">
@@ -54,6 +55,9 @@
                                                 <option value="#">Philippines</option>
                                             </select>
                                         </div> --}}
+                                        @error('country')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -62,6 +66,9 @@
                                         <label for="fname">First Name</label>
                                         <input type="text" name="f_name" id="fname" class="form-control"
                                             placeholder="Your firstname">
+                                        @error('f_name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -69,6 +76,9 @@
                                         <label for="lname">Last Name</label>
                                         <input type="text" name="l_name" id="lname" class="form-control"
                                             placeholder="Your lastname">
+                                        @error('l_name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -77,6 +87,9 @@
                                         <label for="fname">Address</label>
                                         <input type="text" name="address" id="address" class="form-control"
                                             placeholder="Enter Your Address">
+                                        @error('address')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -85,6 +98,9 @@
                                         <label for="stateprovince">State/Province</label>
                                         <input type="text" name="state" id="fname" class="form-control"
                                             placeholder="State Province">
+                                        @error('state')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -93,6 +109,9 @@
                                         <label for="companyname">Town/City</label>
                                         <input type="text" name="city" id="towncity" class="form-control"
                                             placeholder="Town or City">
+                                        @error('city')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -101,20 +120,30 @@
                                         <label for="lname">Zip/Postal Code</label>
                                         <input type="number" name="postal_code" id="zippostalcode" class="form-control"
                                             placeholder="Zip / Postal">
+                                        @error('postal_code')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">E-mail Address</label>
-                                        <input type="email" name="email"  id="email" class="form-control"
+                                        <input type="email" name="email" id="email" class="form-control"
                                             placeholder="State Province">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="Phone">Phone Number</label>
-                                        <input type="number" name="phone_no" id="zippostalcode" class="form-control" placeholder="">
+                                        <input type="number" name="phone_no" id="zippostalcode" class="form-control"
+                                            placeholder="">
+                                        @error('phone_no')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -195,15 +224,17 @@
                         </div>
                         <div class="card-footer text-center row">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary
-                                    id="submit">Place an order</button>
+                                <button type="submit"
+                                    class="btn btn-primary
+                                    id="submit">Place an
+                                    order</button>
                             </div>
                         </div>
                         {{-- <div class="row">
                             <div class="col-md-12 text-center">
                                 {{-- <p><a href="{{ route('order') }}" class="btn btn-primary">Place an order</a></p> --}}
-                                {{-- <p><a {{url('store-form')}} class="btn btn-primary">Place an order</a></p> --}}
-                            {{-- </div> --}}
+                        {{-- <p><a {{url('store-form')}} class="btn btn-primary">Place an order</a></p> --}}
+                        {{-- </div> --}}
                         {{-- </div> --}}
                     </div>
                     </form>

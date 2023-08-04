@@ -76,6 +76,9 @@
     <script src="{{ asset('public/js/jquery.stellar.min.js') }}"></script>
     <!-- Main -->
     <script src="{{ asset('public/js/main.js') }}"></script>
+    <!-- If using a CDN -->
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
     @yield('css')
     @yield('js')
 </body>
