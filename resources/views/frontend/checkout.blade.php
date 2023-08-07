@@ -42,20 +42,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="country">Country</label>
-                                        <input type="text" name="country" id="country" class="form-control"
+                                        <input type="text" name="country" id="fname" class="form-control"
                                             value="Pakistan">
-                                        {{-- <div class="form-field">
-                                            <i class="icon icon-arrow-down3"></i>
-                                            <select name="people" id="people" class="form-control">
-                                                <option value="#">Select country</option>
-                                                <option value="#">Alaska</option>
-                                                <option value="#">China</option>
-                                                <option value="#">Japan</option>
-                                                <option value="#">Korea</option>
-                                                <option value="#">Philippines</option>
-                                            </select>
-                                        </div> --}}
-                                        @error('country')
+                                            @error('country')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -66,7 +55,7 @@
                                         <label for="fname">First Name</label>
                                         <input type="text" name="f_name" id="fname" class="form-control"
                                             placeholder="Your firstname">
-                                        @error('f_name')
+                                            @error('f_name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -76,7 +65,7 @@
                                         <label for="lname">Last Name</label>
                                         <input type="text" name="l_name" id="lname" class="form-control"
                                             placeholder="Your lastname">
-                                        @error('l_name')
+                                            @error('l_name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -87,7 +76,7 @@
                                         <label for="fname">Address</label>
                                         <input type="text" name="address" id="address" class="form-control"
                                             placeholder="Enter Your Address">
-                                        @error('address')
+                                            @error('address')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -98,7 +87,7 @@
                                         <label for="stateprovince">State/Province</label>
                                         <input type="text" name="state" id="fname" class="form-control"
                                             placeholder="State Province">
-                                        @error('state')
+                                            @error('state')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -109,7 +98,7 @@
                                         <label for="companyname">Town/City</label>
                                         <input type="text" name="city" id="towncity" class="form-control"
                                             placeholder="Town or City">
-                                        @error('city')
+                                            @error('city')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -120,7 +109,7 @@
                                         <label for="lname">Zip/Postal Code</label>
                                         <input type="number" name="postal_code" id="zippostalcode" class="form-control"
                                             placeholder="Zip / Postal">
-                                        @error('postal_code')
+                                            @error('postal_code')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -131,7 +120,7 @@
                                         <label for="email">E-mail Address</label>
                                         <input type="email" name="email" id="email" class="form-control"
                                             placeholder="State Province">
-                                        @error('email')
+                                            @error('email')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -141,21 +130,11 @@
                                         <label for="Phone">Phone Number</label>
                                         <input type="number" name="phone_no" id="zippostalcode" class="form-control"
                                             placeholder="">
-                                        @error('phone_no')
+                                            @error('phone_no')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-
-                                {{-- <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio"> Create an Account? </label>
-                                            <label><input type="radio" name="optradio"> Ship to different
-                                                address</label>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                     </div>
 
@@ -166,18 +145,17 @@
                                     <h2>Cart Total</h2>
                                     <ul>
                                         <li>
-                                            <span>Subtotal</span> <span>{{ $total }}</span>
+                                            <span class="font-weight-bold">Subtotal</span> <span>{{ $total }} PKR</span>
                                             <ul>
                                                 @foreach ((array) session('cart') as $id => $details)
-                                                    <li><span>{{ $details['quantity'] }} x
+                                                    <li><span class="font-weight-bold">{{ $details['quantity'] }} x
                                                             {{ $details['name'] }}</span>
-                                                        <span>{{ $details['price'] * $details['quantity'] }}</span>
+                                                        <span>{{ $details['price'] * $details['quantity'] }} PKR</span>
                                                     </li>
                                                 @endforeach
                                             </ul>
                                         </li>
-                                        {{-- <li><span>Shipping</span> <span>$0.00</span></li> --}}
-                                        <li><span>Order Total</span> <span>{{ $total }}</span></li>
+                                        <li><span class="font-weight-bold">Order Total</span> <span>{{ $total }} PKR</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -188,54 +166,14 @@
                                 <div class="cart-detail">
                                     <h2>Payment Method</h2>
                                     <h3>Cash on delivery</h3>
-                                    {{-- <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <div class="radio">
-                                                        <label><input type="radio" name="optradio"> Direct Bank
-                                                            Tranfer</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <div class="radio">
-                                                        <label><input type="radio" name="optradio"> Check Payment</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <div class="radio">
-                                                        <label><input type="radio" name="optradio"> Paypal</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value=""> I have read and
-                                                            accept the
-                                                            terms and conditions</label>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-center row">
+                        <div class="card-footer text-center row mx-0">
                             <div class="col">
-                                <button type="submit"
-                                    class="btn btn-primary
-                                    id="submit">Place an
-                                    order</button>
+                                <button type="submit" class="btn btn-success" id="submit">Place an order</button>
                             </div>
                         </div>
-                        {{-- <div class="row">
-                            <div class="col-md-12 text-center">
-                                {{-- <p><a href="{{ route('order') }}" class="btn btn-primary">Place an order</a></p> --}}
-                        {{-- <p><a {{url('store-form')}} class="btn btn-primary">Place an order</a></p> --}}
-                        {{-- </div> --}}
-                        {{-- </div> --}}
                     </div>
                     </form>
                 </div>

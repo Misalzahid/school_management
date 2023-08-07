@@ -27,6 +27,10 @@
                 <a href="{{ route('product.index') }}" class="nav-link"><i
                     class="fab fa-product-hunt"></i><span>Product</span></a>
             </li>
+            <li class="dropdown {{ request()->is('admin/upComingProduct*') ? 'active' : '' }}">
+                <a href="{{ route('upComingProduct.index') }}" class="nav-link"><i
+                    class="fab fa-product-hunt"></i><span>UpcomingProduct</span></a>
+            </li>
             <li class="dropdown {{ request()->is('admin/getOrder*') ? 'active' : '' }}">
                 <a href="{{ route('getOrder') }}" class="nav-link"><i class="fa fa-info-circle"></i><span>Order</span></a>
             </li>

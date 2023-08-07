@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\UpcomingProduct;
 use App\Models\Varient;
 use App\Models\Category;
 use App\Models\SubCategory;
@@ -119,6 +120,11 @@ class HomeController extends Controller
         return view('frontend.order-complete',compact('name','order'));
     }
 
+    // public function productDetail()
+    // {
+    //     return view('frontend.product-detail');
+    // }
+
     public function women()
     {
         //get sub category agaainst category
@@ -166,5 +172,11 @@ class HomeController extends Controller
     {
         $products = SubCategory::with('product')->find($id)->product()->paginate(8);
         return view('frontend.product', compact('products'));
+    }
+
+    public function upComingProduct(){
+
+        $products = UpcomingProduct::paginate(8);
+        return view('frontend.upcomingPproduct.upcoming',compact('products'));
     }
 }

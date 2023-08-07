@@ -110,7 +110,7 @@
                                     <div class="tab-pane fade unauth-job-list" id="category-3" role="tabpanel"
                                         aria-labelledby="category-3-nav" data-an-category="seoTabContent-Top Clients">
                                         <div class="card-body table-striped table-bordered table-responsive">
-                                            <table class="table text-center" id="table_id_events">
+                                            <table class="table text-center" id="table_id_events1">
                                                 <thead>
                                                     <tr>
                                                         <th>Sr.</th>
@@ -147,7 +147,7 @@
                                     <div class="tab-pane fade unauth-job-list" id="category-4" role="tabpanel"
                                         aria-labelledby="category-4-nav" data-an-category="seoTabContent-Top Clients">
                                         <div class="card-body table-striped table-bordered table-responsive">
-                                            <table class="table text-center" id="table_id_events">
+                                            <table class="table text-center" id="table_id_events2">
                                                 <thead>
                                                     <tr>
                                                         <th>Sr.</th>
@@ -213,6 +213,20 @@
             toastr.success('{{ \Illuminate\Support\Facades\Session::get('message') }}');
         </script>
     @endif
+    <script>
+        $(document).ready(function() {
+            $('#table_id_events').DataTable()
+
+        })
+        $(document).ready(function() {
+            $('#table_id_events1').DataTable()
+
+        })
+        $(document).ready(function() {
+            $('#table_id_events2').DataTable()
+
+        })
+    </script>
 @endsection
 
 

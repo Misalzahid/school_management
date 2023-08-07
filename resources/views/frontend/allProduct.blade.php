@@ -2,7 +2,7 @@
 @section('content')
 
     <body>
-        <div class="colorlib-product">
+        <div class="colorlib-product all-products">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
@@ -19,9 +19,6 @@
                                 </a>
                                 <div class="desc">
                                     <h2><a href="#">{{ $product->name }}</a></h2>
-                                    {{-- <span class="price">{{ $price }}</span> --}}
-                                    {{-- <p class="btn-holder"><a href="{{route('checkout')}}"
-                                        class="btn btn-outline-primary">Add to cart</a> </p> --}}
                                 </div>
                             </div>
                         </div>
@@ -39,38 +36,6 @@
                                 <li><a href="{{ $products->nextPageUrl() }}"><i class="ion-ios-arrow-forward"></i></a></li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="colorlib-partner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-                        <h2>Trusted Partners</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col partner-col text-center">
-                        <img src="{{ asset('public/images/brand-1.jpg') }}" class="img-fluid"
-                            alt="Free html4 bootstrap 4 template">
-                    </div>
-                    <div class="col partner-col text-center">
-                        <img src="{{ asset('public/images/brand-2.jpg') }}" class="img-fluid"
-                            alt="Free html4 bootstrap 4 template">
-                    </div>
-                    <div class="col partner-col text-center">
-                        <img src="{{ asset('public/images/brand-3.jpg') }}" class="img-fluid"
-                            alt="Free html4 bootstrap 4 template">
-                    </div>
-                    <div class="col partner-col text-center">
-                        <img src="{{ asset('public/images/brand-4.jpg') }}" class="img-fluid"
-                            alt="Free html4 bootstrap 4 template">
-                    </div>
-                    <div class="col partner-col text-center">
-                        <img src="{{ asset('public/images/brand-5.jpg') }}" class="img-fluid"
-                            alt="Free html4 bootstrap 4 template">
                     </div>
                 </div>
             </div>

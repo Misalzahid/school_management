@@ -69,6 +69,16 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="col-sm-12 ">
+                                                    <div class="form-group mb-3">
+                                                        <label>Description</label>
+                                                        <textarea placeholder="Enter description" name="description" id="description" class="form-control" required></textarea>
+                                                        @error('description')
+                                                            <div class="text-danger">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
 
@@ -144,6 +154,9 @@
             toastr.success('{{ \Illuminate\Support\Facades\Session::get('message') }}');
         </script>
     @endif
+    <script>
+        CKEDITOR.replace('description');
+    </script>
     <script>
         $(document).ready(function() {
             $('#category-dropdown').on('change', function() {
@@ -241,8 +254,8 @@
 
         // Event handler for removing a field
         $(document).on('click', '.removeFieldButton', function() {
-        var target = $(this).data('target');
-        $('.fieldsContainer' + target).remove();
+            var target = $(this).data('target');
+            $('.fieldsContainer' + target).remove();
         });
         // });
     </script>

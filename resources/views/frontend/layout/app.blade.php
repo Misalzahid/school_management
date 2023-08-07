@@ -3,7 +3,7 @@
 <!-- index.html  21 Nov 2019 03:44:50 GMT -->
 
 <head>
-    <title>Shoes-Shop</title>
+    <title>Shoe Shop</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -28,9 +28,7 @@
         <!-- Owl Carousel -->
         <link rel="stylesheet" href="{{ asset('public/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('public/css/owl.theme.default.min.css') }}">
-
-        <!-- Date Picker -->
-        <link rel="stylesheet" href="{{ asset('public/css/bootstrap-datepicker.css') }}">
+        
         <!-- Flaticons  -->
         <link rel="stylesheet" href="{{ asset('public/fonts/flaticon/font/flaticon.css') }}">
 
@@ -70,15 +68,10 @@
     <!-- Magnific Popup -->
     <script src="{{ asset('public/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('public/js/magnific-popup-options.js') }}"></script>
-    <!-- Date Picker -->
-    <script src="{{ asset('public/js/bootstrap-datepicker.js') }}"></script>
     <!-- Stellar Parallax -->
     <script src="{{ asset('public/js/jquery.stellar.min.js') }}"></script>
     <!-- Main -->
     <script src="{{ asset('public/js/main.js') }}"></script>
-    <!-- If using a CDN -->
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-
     @yield('css')
     @yield('js')
 </body>

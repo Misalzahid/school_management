@@ -1,4 +1,4 @@
-;(function () {
+$(function () {
 
 	'use strict';
 
@@ -275,17 +275,6 @@
 		}
 	};
 
-	var datePicker = function() {
-		// jQuery('#time').timepicker();
-		jQuery('.date').datepicker({
-		  'format': 'm/d/yyyy',
-		  'autoclose': true
-		});
-	};
-
-
-
-	
 	$(function(){
 		mobileMenuOutsideClick();
 		offcanvasMenu();
@@ -293,11 +282,21 @@
 		contentWayPoint();
 		sliderMain();
 		dropdown();
-		goToTop();
 		loaderPage();
 		owlCrouselFeatureSlide();
 		parallax();
-		datePicker();
+
+        var currentPath = window.location.pathname.split('/').pop(); // Get the current path of the URL
+
+        // Loop through each anchor tag in the navigation menu
+        $('.menu-1 ul li a').each(function() {
+            var linkPath = $(this).attr('href').split('/').pop(); // Get the href attribute of the anchor tag
+
+            console.log(linkPath);
+            if (linkPath === currentPath) {
+                $(this).closest('li').addClass('active'); // Add the "active" class to the current link if its href matches the current path
+            }
+        });
 	});
 
 

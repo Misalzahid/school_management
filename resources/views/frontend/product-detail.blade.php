@@ -15,10 +15,10 @@
         <div class="colorlib-product">
             <div class="container">
                 <div class="row row-pb-lg product-detail-wrap">
-                    <div class="col-sm-8">
-                        <div class="">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
                             <div class="item">
-                                <div class="product-entry border">
+                                <div class="product-entry border pb-4 text-center">
                                     <a href="#" class="prod-img">
                                         <img src="{{ asset($productDetails->image) }}" class="img-fluid"
                                             alt="Free html5 bootstrap 4 template">
@@ -28,43 +28,41 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
-                        <div class="product-desc">
+                    <div class="col-sm-6">
+                        <div class="pl-lg-4 px-0 product-desc">
                             <h3>Product Name: {{ $productDetails->name }}</h3>
                             <div class="product-variant">
                                 <form action=" " method="POST">
                                     @csrf
-                                    <select name="" id="sizeSelect" class="form-control">
+                                    <select name="" id="sizeSelect" class="form-control rounded-0 mb-3">
                                         <option value=""disabled selected>Select Size</option>
                                         @foreach ($productDetails->varients as $variant)
                                             <option value="{{ $variant->id }}">{{ $variant->size }}</option>
                                         @endforeach
                                     </select>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Stock" value=""
+                                        <input type="text" class="form-control rounded-0" placeholder="Stock" value=""
                                             id="stockDisplay" aria-label="Recipient's username"
-                                            aria-describedby="basic-addon2">
-                                        <span class="input-group-text">Stock</span>
+                                            aria-describedby="basic-addon2"" readonly>
+                                        <span class="input-group-text rounded-0">Stock</span>
                                     </div>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Price" value=""
+                                        <input type="text" class="form-control rounded-0" placeholder="Price" value=""
                                             id="priceDisplay" aria-label="Recipient's username"
-                                            aria-describedby="basic-addon2">
-                                        <span class="input-group-text">Price</span>
+                                            aria-describedby="basic-addon2" readonly>
+                                        <span class="input-group-text rounded-0">Price</span>
                                     </div>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Quantity" id="qty"
+                                        <input type="text" class="form-control rounded-0" placeholder="Quantity" id="qty"
                                             aria-label="Recipient's username"
                                             aria-describedby="basic-addon2">
-                                        <span class="input-group-text">Quantity</span>
+                                        <span class="input-group-text rounded-0">Quantity</span>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 text-center">
                                             <p class="addtocart"><a
-                                                    class="btn btn-primary btn-addtocart add_to_cart"
-                                                    onclick="myFunction()"><i class="icon-shopping-cart"></i>
-                                                    Add to
-                                                    Cart</a></p>
+                                                    class="w-100 font-weight-bold text-white btn btn-success btn-addtocart add_to_cart"
+                                                    onclick="myFunction()"><span class="mr-3 icon-shopping-cart"></span>Add to Cart</a></p>
                                         </div>
                                     </div>
                                 </form>
@@ -77,33 +75,14 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-md-12 pills">
-                                <div class="bd-example bd-example-tabs">
-                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="pills-description-tab" data-toggle="pill"
-                                                href="#pills-description" role="tab" aria-controls="pills-description"
-                                                aria-expanded="true">Description</a>
-                                        </li>
-                                    </ul>
+                                <div class="bd-example bd-example-tabs">
+                                    <h3>Description</h3>
 
                                     <div class="tab-content" id="pills-tabContent">
                                         <div class="tab-pane border fade show active" id="pills-description" role="tabpanel"
                                             aria-labelledby="pills-description-tab">
-                                            <p>Even the all-powerful Pointing has no control about the blind texts it is an
-                                                almost unorthographic life One day however a small line of blind text by the
-                                                name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                            <p>When she reached the first hills of the Italic Mountains, she had a last view
-                                                back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-                                                Village and the subline of her own road, the Line Lane. Pityful a rethoric
-                                                question ran over her cheek, then she continued her way.</p>
-                                            <ul>
-                                                <li>The Big Oxmox advised her not to do so</li>
-                                                <li>Because there were thousands of bad Commas</li>
-                                                <li>Wild Question Marks and devious Semikoli</li>
-                                                <li>She packed her seven versalia</li>
-                                                <li>tial into the belt and made herself on the way.</li>
-                                            </ul>
+                                            <p>{!! $productDetails->description !!}</p>
                                         </div>
                                     </div>
                                 </div>

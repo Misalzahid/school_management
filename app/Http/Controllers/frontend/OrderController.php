@@ -13,7 +13,6 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
-
         $request->validate([
             'country' => 'required|string|max:255',
             'f_name' => 'required',

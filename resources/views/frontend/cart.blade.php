@@ -77,7 +77,7 @@
                                     <div class="one-eight text-center">
                                         <div class="display-tc">
                                             <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number text-center"
+                                                class="form-control input-number text-center"readonly
                                                 value="{{ $details['quantity'] }}" min="1" max="100">
                                         </div>
                                     </div>
@@ -102,19 +102,8 @@
                         <div class="total-wrap">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    {{-- <form action="#">
-                                        <div class="row form-group">
-                                            <div class="col-sm-9">
-                                                <input type="text" name="quantity" class="form-control input-number"
-                                                    placeholder="Your Coupon Number...">
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <input type="submit" value="Apply Coupon" class="btn btn-primary">
-                                            </div>
-                                        </div>
-                                    </form> --}}
                                     <div>
-                                        <a class="btn btn-success mb-3" href="{{ route('checkout') }}">cheakout</a>
+                                        <a class="btn btn-success mb-3" href="{{ route('checkout') }}">Checkout</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-4 text-center">
@@ -126,9 +115,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div>
-                                    <a class="btn btn-success mb-3" href="{{ route('checkout') }}">cheakout</a>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -136,12 +122,12 @@
 
                 <div class="row">
                     <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-                        <h2>Related Products</h2>
+                        <h2 class="text-dark">Related Products</h2>
                     </div>
                 </div>
                 <div class="row">
                     @foreach ($products as $product)
-                        <div class="col-lg-3 mb-4 text-center">
+                        <div class="col-lg-3 col-md-6 mb-4 text-center">
                             <div class="product-entry border">
                                 <a href="{{ route('product', ['id' => $product->id]) }}" class="prod-img">
                                     <img src="{{ asset($product->image) }}" class="img-fluid"
@@ -149,7 +135,6 @@
                                 </a>
                                 <div class="desc">
                                     <h2><a href="#">{{ $product->name }}</a></h2>
-                                    {{-- <span class="price">{{ $price }}</span> --}}
                                 </div>
                             </div>
                         </div>

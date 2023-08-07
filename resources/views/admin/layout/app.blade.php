@@ -37,6 +37,7 @@
 <script src="{{ asset('public/admin/assets/js/page/index.js')}}"></script>
 <!-- Template JS File -->
 <script src="{{ asset('public/admin/assets/js/scripts.js')}}"></script>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <!-- Custom JS File -->
 <script src="{{ asset('public/admin/assets/js/custom.js')}}"></script>
 <script src="{{asset('public/admin/assets/toastr/js/toastr.min.js')}}"></script>

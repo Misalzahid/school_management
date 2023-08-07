@@ -46,6 +46,7 @@ class ProductController extends Controller
             'name' => 'required',
             'category_id' => 'required',
             'sub_Category_id' => 'required',
+            'description' => 'required',
             'image' => 'required|image',
         ]);
         if ($request->hasFile('image')) {
@@ -62,6 +63,7 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'subCategory_id' => $request->sub_Category_id,
             'image' => $image,
+            'description' => $request->description,
         ]);
         $size = $request->size;
         $quantities = $request->quantity;
@@ -105,7 +107,6 @@ class ProductController extends Controller
         $product = Product::with('varients')->find($id);
         $categories = Category::all();
         $subCategories = SubCategory::where('category_id', $product->category_id)->get();
-        // return $subCategories;
         return view('admin.product.edit', compact('product', 'categories', 'subCategories'));
     }
 
@@ -122,6 +123,7 @@ class ProductController extends Controller
             'name' => 'required',
             'category_id' => 'required',
             'sub_category_id' => 'required',
+            'description' => 'required',
             'size' => 'required|array',
             'size.*' => 'integer|min:0',
             'price' => 'required|array',
@@ -151,6 +153,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'category_id' => $request->category_id,
             'subCategory_id' => $request->sub_category_id,
+            'description' => $request->description,
         ]);
 
         $sizes = $request->size;
