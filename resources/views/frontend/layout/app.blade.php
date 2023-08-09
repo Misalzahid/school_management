@@ -25,10 +25,12 @@
         <!-- Flexslider  -->
         <link rel="stylesheet" href="{{ asset('public/css/flexslider.css') }}">
 
+        <link rel="stylesheet" href="{{asset('public/css/toastr.css')}}">
+
         <!-- Owl Carousel -->
         <link rel="stylesheet" href="{{ asset('public/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('public/css/owl.theme.default.min.css') }}">
-        
+
         <!-- Flaticons  -->
         <link rel="stylesheet" href="{{ asset('public/fonts/flaticon/font/flaticon.css') }}">
 
@@ -66,14 +68,45 @@
     <!-- Owl carousel -->
     <script src="{{ asset('public/js/owl.carousel.min.js') }}"></script>
     <!-- Magnific Popup -->
+
+    <script src="{{asset('public/js/toastr.min.js')}}"></script>
+
     <script src="{{ asset('public/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('public/js/magnific-popup-options.js') }}"></script>
     <!-- Stellar Parallax -->
     <script src="{{ asset('public/js/jquery.stellar.min.js') }}"></script>
     <!-- Main -->
     <script src="{{ asset('public/js/main.js') }}"></script>
+
     @yield('css')
     @yield('js')
 </body>
+@yield('script')
+<script>
+    /*toastr popup function*/
+    function toastrPopUp() {
+        toastr.options = {
+            "closeButton": true,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            toastr.success('Success messages');
+        }
+    }
 
+    /*toastr popup function*/
+    toastrPopUp();
+
+
+</script>
 </html>

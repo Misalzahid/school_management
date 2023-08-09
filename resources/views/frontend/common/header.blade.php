@@ -20,8 +20,15 @@
 								<li><a href="{{ url('kids') }}">Kids</a></li>
 								<li><a href="{{ url('about') }}">About Us</a></li>
 								<li><a href="{{ url('contact') }}">Contact</a></li>
-								<li><a href="{{ url('upComingProduct') }}">Upcoming Product</a></li>
+								<li><a href="{{ url('upComingProduct') }}">Upcoming Products</a></li>
                                 <li class="cart"><a href="{{ url('cart') }}"><i class="icon-shopping-cart"></i> Cart [<span class="cart-item-count">{{count((array) session('cart'))}}</span>]</a></li>
+                                
+                                {{-- if user login display logout button and if user logout then display login button --}}
+                                @if(Auth::guard('user')->check())
+                                <li class="cart"><a href="{{ route('user.logout') }}"><i class=""></i>Logout</a></li>
+                            @else
+                                <li class="cart"><a href="{{ url('login') }}"><i class=""></i>Login</a></li> <!-- Display Login button -->
+                            @endif
                             </ul>
 						</div>
 					</div>

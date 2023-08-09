@@ -2,6 +2,15 @@
 @section('content')
 
     <body>
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="bread"><span><a href="{{ url('index') }}">Home</a></span> / <span>Upcoming Products</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="colorlib-product all-products">
             <div class="container">
                 <div class="row">

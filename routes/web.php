@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\frontend\AuthController as UserAuthController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
@@ -69,6 +70,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     // Route::resource('faq', FaqController::class);
 
 });
+Route::get('login',[UserAuthController::class,'index'])->name('login');
+Route::get('registerForm',[UserAuthController::class,'registerForm'])->name('registerForm');
+Route::post('register',[UserAuthController::class,'register'])->name('register');
+Route::post('userLogin',[UserAuthController::class,'login'])->name('userLogin');
+
 Route::get('about', [HomeController::class, 'about']);
 Route::get('addToWishlist', [HomeController::class, 'addToWishlist']);
 Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
@@ -86,8 +92,13 @@ Route::get('kids', [HomeController::class, 'kids']);
 Route::get('Product/{id}', [ProductDetailController::class, 'getproductDetail'])->name('product');
 Route::post('varient', [ProductDetailController::class, 'getVarient'])->name('varient');
 // Route::post('addToCart/{id}',[AddToCartController::class ,'addToCart'])->name('addToCart');
-Route::get('add-to-cart', [AddToCartController::class, 'addToCart'])->name('add-to-cart');
+// Route::get('add-to-cart', [AddToCartController::class, 'addToCart'])->name('add-to-cart');
 Route::get('add-to-carts', [AddToCartController::class, 'addToCarts']);
 Route::get('add-to-cart-remove', [AddToCartController::class, 'remove']);
 Route::post('order', [OrderController::class, 'store'])->name('order');
 // Route::get('getOrder', [AdminOrderController::class, 'index'])->name('order');
+
+Route::group(['prefix' => 'user', 'middleware' => 'user', 'as' => 'user.'], function () {
+    Route::get('add-to-cart', [AddToCartController::class, 'addToCart'])->name('add-to-cart');
+    Route::get('logout',[UserAuthController::class,'logout'])->name('logout');
+});

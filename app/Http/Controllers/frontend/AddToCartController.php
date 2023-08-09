@@ -6,11 +6,18 @@ use App\Models\Product;
 use App\Models\Varient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AddToCartController extends Controller
 {
     public function addToCart(Request $request)
     {
+        // $userId = Auth()->guard('user')->id();
+        // if (!$userId) {
+        //     // dd('jyfjygukg');
+        //     return response()->json(['success' => true, 'message' => 'Please login before adding to cart!', 'userId' => null]);
+        // }
+
         if (session()->has('cart.' . $request->id)) {
             $data = count((array) session('cart'));
             $cart = (array) session('cart');
@@ -35,6 +42,7 @@ class AddToCartController extends Controller
             $data = count((array) session('cart'));
 
             $cart = (array) session('cart');
+
             return response()->json(['success' => true, 'message' => 'Product added to cart successfully!', 'data' => $data, 'cart' => $cart]);
         }
     }

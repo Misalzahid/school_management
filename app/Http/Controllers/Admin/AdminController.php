@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Mail\ResetPasswordMail;
 use App\Models\admin;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Mail\ResetPasswordMail;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
     //
     public function getdashboard(){
 
-        return view('admin.index');
+        $product_Count = Product::all()->count();
+        $order = Order::all()->count();
+        return view('admin.index',compact('product_Count','order'));
     }
     public function getProfile(){
         $data=Admin::find(Auth::guard('admin')->id());
@@ -102,5 +106,4 @@ class AdminController extends Controller
         Auth::guard('admin')->logout();
         return redirect('admin');
     }
-
 }
