@@ -37,7 +37,7 @@
                                                 <td>{{ $order->code }}</td>
                                                 <td>{{ $order->payment }}</td>
                                                 <td>{{ $order->total_amount }}</td>
-                                                <td>{{ $order->created_at }}</td>
+                                                <td>{{ $order->created_at->format('d-m-Y') }}</td>
                                                 <td>
                                                     @if ($order->status == 'approved')
                                                         <div class="badge badge-success badge-shadow">approved</div>

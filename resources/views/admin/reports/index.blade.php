@@ -57,7 +57,7 @@
                                                             <td>{{ $dailyOrder->code }}</td>
                                                             <td>{{ $dailyOrder->payment }}</td>
                                                             <td>{{ $dailyOrder->total_amount }}</td>
-                                                            <td>{{ $dailyOrder->created_at }}</td>
+                                                            <td>{{ $dailyOrder->created_at->format('d-m-Y') }}</td>
                                                             <td>{{ $dailyOrder->status }}</td>
 
                                                         </tr>
